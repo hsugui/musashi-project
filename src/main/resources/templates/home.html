@@ -32,17 +32,13 @@
 		      </ul>
 			</div>
 		</nav>
-		
-		<div>
-			<p>THIS IS MY PROJECT</p>
-		</div>
 	
-		<div class="card-deck">
+		<div class="card-deck mb-5">
 			<div class="card">
-				<div class="card-header alert-success">
+				<div class="card-header" style="background-color: #F8C471;">
 			    	BUY
 				</div>
-		    	<div class="card-body" style="background-color: #EAFAF1;">
+		    	<div class="card-body" style="background-color: #FBFCFC;">
 			      	<h5 class="card-title">Buy</h5>
 			      	<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 			      	<a href="transaction/buy">Click here to buy Musashi Coins</a>
@@ -50,10 +46,10 @@
 		    	</div>
 			</div>
 			<div class="card">
-				<div class="card-header alert-primary">
+				<div class="card-header" style="background-color: #F1948A;">
 			    	TRANSFER
 				</div>
-		    	<div class="card-body" style="background-color: #EBF5FB;">
+		    	<div class="card-body" style="background-color: #FBFCFC;">
 			     	<h5 class="card-title">Transfer</h5>
 			      	<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
 			      	<a href="transaction/transfer">Click here to transfer Musashi Coins</a>
@@ -61,6 +57,15 @@
 
 		    	</div>
 		  	</div>
+		</div>
+		
+		<h2>History of transactions</h2>
+		
+		<div class="container">
+			<div class="card" th:each="newTransaction : ${newTransactions}">
+				<div class="col-md-5">Purchase: <span th:text="${newTransaction.value}">100.00</span></div>
+				<div class="col-md-5">Transfer: <span th:text="${newTransaction.value}">100.00</span></div>
+			</div>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

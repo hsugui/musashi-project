@@ -7,20 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.musashicoin.model.Order1;
-import com.musashicoin.repository.OrderRepository;
+import com.musashicoin.model.NewTransaction;
+import com.musashicoin.repository.TransactionRepository;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	private OrderRepository orderRepository;
+	private TransactionRepository transactionRepository;
 	
 	@GetMapping("/home")
 	public String home(Model model) {
-
-		List<Order1> orders = orderRepository.findAll();
-		model.addAttribute("orders", orders);
+		List<NewTransaction> newTransactions = transactionRepository.findAll();
+		model.addAttribute("newTransactions", newTransactions);
 		return "home";
 	}
 	

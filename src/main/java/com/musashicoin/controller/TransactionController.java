@@ -10,34 +10,35 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.musashicoin.dto.NewTransactionRequest;
-import com.musashicoin.model.Order1;
-import com.musashicoin.repository.OrderRepository;
+import com.musashicoin.model.NewTransaction;
+import com.musashicoin.repository.TransactionRepository;
 
 @Controller
 @RequestMapping("transaction")
 public class TransactionController {
 	
 	@Autowired
-	private OrderRepository orderRepository;
+	private TransactionRepository transactionRepository;
 
 	@GetMapping("transfer")
 	public String transfer(NewTransactionRequest request) {
 		return "transaction/transfer";
 	}
 	
-	@PostMapping("new")
-	public String newTransaction(@Valid NewTransactionRequest request, BindingResult result) {
-		if(result.hasErrors()) return "transaction/transfer";
-		
-		//Transaction transaction = request.toTransaction();
-		Order1 order1 = request.toOrder();
-		orderRepository.save(order1);
-		
-		return "redirect:/home";
-	}
-	
 	@GetMapping("buy")
 	public String buy(NewTransactionRequest request) {
 		return "transaction/buy";
 	}
+	
+	@PostMapping("last")
+	public String last(@Valid NewTransactionRequest request, BindingResult result) {
+		if(result.hasErrors()) return "transaction/transfer";
+		
+		NewTransaction newTransaction = request.toNewTransaction();
+		transactionRepository.save(newTransaction);
+		
+		return "redirect:/home";
+	}
+	
+
 }

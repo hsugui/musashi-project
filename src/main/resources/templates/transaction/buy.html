@@ -34,13 +34,20 @@
 	
 		<div class="card-deck">
 			<div class="card">
-				<div class="card-header alert-success">
+				<div class="card-header" style="background-color: #F8C471;">
 			    	BUY
 				</div>
 		    	<div class="card-body" style="background-color: #FBFCFC;">
-			      	<h5 class="card-title">Buy</h5>
-			      	<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-			      	<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+			      	<h5 class="card-title">Inject Musashi Coins into your wallet</h5>
+			      	<form th:object="${newTransactionRequest}" action="/transaction/last" method="POST">
+			       		<div class="form-group">
+			     			<label for="transferValue">Amount</label>
+			     			<input th:field="*{transferValue}" th:errorclass="is-invalid" class="form-control" placeholder="00.00"/>
+			     			<div class="invalid-feedback" th:errors="*{transferValue}">Amount error</div>
+							<p class="card-text"><small class="text-muted">This amount of coins will be added to your wallet</small></p>			      	
+			     		</div>
+			     		<button class="btn btn-warning" type="submit">Confirm purchase</button>
+			      	</form>
 		    	</div>
 		  	</div>
 		</div>

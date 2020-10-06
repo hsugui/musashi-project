@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{base :: head}"></head>
+<title>Cat | Musashi Coin</title>
+<body style="background-color: #FCF3CF;">
+	<div th:replace="~{base :: logo}"></div>
+
+	<div class="container">
+		<div th:replace="~{base :: title('CONGRATULATIONS')}"></div>
+
+		<nav
+			class="navbar navbar-expand navbar-light bg-dark d-flex justify-content-between mb-3">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link"
+						style="color: #F7DC6F;" href="home">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						style="color: #F7DC6F;" href="info">Information</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<img src="hannah.jpg" alt="Hannah">
+		<br><br>
+		YOU'VE FOUND THE HIDDEN CAT. CLICK HERE TO EARN COINS.
+
+	</div>
+</body>
+</html>

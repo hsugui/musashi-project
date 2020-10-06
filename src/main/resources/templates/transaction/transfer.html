@@ -33,17 +33,12 @@
 	
 		<div class="card-deck">
 			<div class="card">
-				<div class="card-header alert-primary">
+				<div class="card-header" style="background-color: #F1948A;">
 			    	TRANSFER
 				</div>
 		    	<div class="card-body" style="background-color: #FBFCFC;">
-			     	<h5 class="card-title">Transfer</h5>
-			     		<form th:object="${newTransactionRequest}" action="/transaction/new" method="POST">
-			     			<div class="form-group">
-			     				<label for="customerName">Name</label>
-			     				<input th:field="*{customerName}" th:errorclass="is-invalid" class="form-control" placeholder="Reciepient's name"/>
-			     				<div class="invalid-feedback" th:errors="*{customerName}">Name error</div>
-			     			</div>
+			     	<h5 class="card-title">Transfer Musashi Coins to another wallet</h5>
+			     		<form th:object="${newTransactionRequest}" action="/transaction/last" method="POST">
 			     			<div class="form-group">
 			     				<label for="publicKey1">Public Key</label>
 			     				<input th:field="*{publicKey}" th:errorclass="is-invalid" class="form-control" placeholder="Target's public key"/>
@@ -53,12 +48,10 @@
 			     				<label for="transferValue">Value</label>
 			     				<input th:field="*{transferValue}" th:errorclass="is-invalid" class="form-control" placeholder="Amount to transfer"/>
 			     				<div class="invalid-feedback" th:errors="*{transferValue}">Value error</div>
+			     				<p class="card-text"><small class="text-muted">This amount of coins will be transfered from your wallet to the target's wallet</small></p>	
 			     			</div>
 			     			<button class="btn btn-warning" type="submit">Confirm transaction</button>
 			     		</form>
-			      	<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-			      	<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
 		    	</div>
 		  	</div>
 		</div>

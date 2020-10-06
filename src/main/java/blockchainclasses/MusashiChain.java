@@ -19,7 +19,7 @@ public class MusashiChain {
 
 	public static void main(String[] args) {	
 		//Setup Bouncey castle as a Security Provider (add our blocks to the blockchain ArrayList).
-		//Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider()); 
+		Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider()); 
 		
 		//Create the new wallets
 		walletA = new Wallet();
